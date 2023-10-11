@@ -22,7 +22,7 @@ func (c *Container) TrivyScan(ctx context.Context) (string, error) {
 	}
 	return trivy.
 		WithMountedFile("/opt/trivy/image.tar", dag.Host().File("/tmp/image.tar")).
-		WithExec([]string{"image", "-q", "-f", "json", "--input", "/opt/trivy/image.tar" }).Stdout(ctx)
+		WithExec([]string{"image", "-q", "-f", "table", "--input", "/opt/trivy/image.tar" }).Stdout(ctx)
 }
 
 
